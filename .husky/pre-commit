@@ -1,5 +1,4 @@
 snyk test
 snyk code test
 npx @biomejs/biome format --write src/*.jsx
-
-
+npx prettier --write src/*.scss
