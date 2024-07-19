@@ -1,12 +1,17 @@
+const vehicleMake = "Ford";
+const vehicleModel = "Aerostar Wagon";
+const distanceValue = "42";
+const distanceUnit = "mi";
+
 //This function fetches the data of a car journey's carbon emission from the API and console logs the result.  
 export default async function fetchData() {
     const url = "https://carbonsutra1.p.rapidapi.com/vehicle_estimate_by_model";
     const data = new FormData(); // This saves a new object to a variable called data
     // Each of the lines below adds a key-value pair to the data variable
-    data.append("vehicle_make", "Ford"); 
-    data.append("vehicle_model", "Aerostar Wagon"); 
-    data.append("distance_value", "42"); 
-    data.append("distance_unit", "mi"); 
+    data.append("vehicle_make", `${vehicleMake}`); 
+    data.append("vehicle_model", `${vehicleModel}`); 
+    data.append("distance_value", `${distanceValue}`); 
+    data.append("distance_unit", `${distanceUnit}`); 
 
     const options = { // This is saving the type, header and body of the request to a variable called options
         method: "POST", // This is setting the type of request to POST
@@ -23,8 +28,8 @@ export default async function fetchData() {
         if (!response.ok) { // If the response from the API is not ok, an error is thrown 
             throw new Error(`HTTP error! status: ${response.status}`); // This will explain that there is an error and its status code
         }
-        const result = await response.json(); // This parses the reponse in JSON format and saves it in a variable name result
-        console.log(result.data.co2e_kg); // This console logs the carbon emission calculated by the API resquest
+        const result = await response.json(); // This parses the response in JSON format and saves it in a variable name result
+        console.log(`Your journey's total carbon emmisions (kg): ${result.data.co2e_kg}`); // This console logs the carbon emission calculated by the API request
     } catch (error) {
         console.error(error); // This console logs the error if the request fails
     }
