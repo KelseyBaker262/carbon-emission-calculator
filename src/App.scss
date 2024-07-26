@@ -1,22 +1,38 @@
 $themes: (
-	light: (
-		text: #080807,
-		background: #f7f8f6,
-		primary: #98e069,
-		secondary: #afbebb,
-		accent: #94a6a9,
-	),
-	dark: (
-		text: #f8f8f7,
-		background: #080907,
-		primary: #4d941e,
-		secondary: #404f4c,
-		accent: #56686c,
-	),
+  light: (
+    text: #080807,
+    background: #f7f8f6,
+    primary: #98e069,
+    secondary: #afbebb,
+    accent: #94a6a9,
+  ),
+  dark: (
+    text: #f8f8f7,
+    background: #080907,
+    primary: #4d941e,
+    secondary: #404f4c,
+    accent: #56686c,
+  ),
 );
 
 // Accessing the text color for the light theme
 $light-text-color: map-get(map-get($themes, light), text);
+$light-background-color: map-get(map-get($themes, light), background);
+$light-primary-color: map-get(map-get($themes, light), primary);
+$light-secondary-color: map-get(map-get($themes, light), secondary);
+$light-accent-color: map-get(map-get($themes, light), accent);
 
-// Accessing the text color for the dark theme
-$dark-text-color: map-get(map-get($themes, dark), text);
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  background-color: $light-background-color;
+}
+
+button {
+  padding: 0.5rem;
+}
