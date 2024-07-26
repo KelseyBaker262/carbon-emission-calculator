@@ -8,12 +8,12 @@ function App() {
 	}
 
 	return (
-		<>
+		<main className="wrapper">
 			<h1>Welcome to Eco Leap</h1>
 			<button type="button" onClick={makeCall}>
 				API Call
 			</button>
-		</>
+		</main>
 	);
 }
 
